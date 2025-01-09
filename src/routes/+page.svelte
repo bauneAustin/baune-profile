@@ -1,77 +1,81 @@
 <script lang="ts">
     import AnimatedText from "../components/animatedText.svelte";
+    import Coffee from "../components/coffee.svelte";
+    import ContentWrapper from "../components/contentWrapper.svelte";
 
     const animatedTexts = [
         {
             text: "JS",
             rotate: "12deg",
-            bottom: "bottom-72",
-            right: "right-48",
             color: "#e06c7580",
         },
         {
             text: "TS",
             rotate: "-12deg",
-            bottom: "bottom-[30%]",
-            right: "right-[35%]",
             color: "#61afef80",
         },
         {
             text: "Svelte",
             rotate: "12deg",
-            top: "bottom-[10em]",
-            right: "right-[21em]",
             color: "#d19a6680",
         },
         {
             text: "React",
             rotate: "-20deg",
-            top: "bottom-[1em]",
-            right: "right-[10%]",
             color: "#98c37980",
         },
         {
             text: "NextJS",
             rotate: "-5deg",
-            top: "bottom-[3em]",
-            right: "right-[32em]",
             color: "#4b526380",
         },
         {
             text: "Node",
             rotate: "5deg",
-            top: "top-[3em]",
-            right: "left-[32em]",
             color: "#e5c07b80",
+        },
+        {
+            text: "Tailwind",
+            rotate: "-10deg",
+            color: "#c678dd80",
+        },
+        {
+            text: "Rspack",
+            rotate: "15deg",
+            color: "#d19a6680",
         },
     ];
 </script>
 
 <!-- Main container that allows scrolling -->
-<div class="min-h-screen w-full">
-    <section class="relative h-screen w-full flex items-center justify-center">
-        <div
-            class="relative bottom-[55px] -z-10 flex flex-col w-full h-[90%] items-center justify-center bg-atom-bg shadow-[0_35px_50px_-5px_rgba(59,130,246,0.5)]"
-        >
-            {#each animatedTexts as { text, rotate, left, top, color } (text)}
-                <AnimatedText
-                    --color={color}
-                    {text}
-                    {rotate}
-                    --left={left}
-                    --top={top}
-                />
-            {/each}
-        </div>
-        <!-- <div class="relative w-full overflow-hidden">
-            <div
-                class="absolute inset-0 rotate-45 rounded-3xl bg-blue-500 shadow-[0_15px_50px_-5px_rgba(59,130,246,0.5)] bg-atom-bg"
-            >
-                <div class="relative w-full h-full">
-                    
+<div class="min-h-screen w-full pt-24 pl-64 pr-64 pb-14">
+    <section class="relative h-screen w-full flex flex-col">
+        <div class="flex flex-row w-full justify-center">
+            <div class="flex flex-col mr-32">
+                <h1 class="text-7xl font-bold text-atom-white">
+                    Hi, I'm <span class="gradient-text">Austin Baune</span>
+                </h1>
+                <h2 class="text-atom-fg text-5xl font-bold mt-4">
+                    Software and Web Developer
+                </h2>
+                <h3 class="text-atom-gray-light text-4xl font-bold">
+                    Current focus on technologies such as
+                </h3>
+                <div class="flex flex-row mt-6 ml-8">
+                    {#each animatedTexts as { text, rotate, color } (text)}
+                        <AnimatedText --color={color} {text} {rotate} />
+                    {/each}
                 </div>
             </div>
-        </div> -->
+            <div class="relative bottom-16">
+                <Coffee />
+            </div>
+        </div>
+        <div class="flex flex-row w-full justify-center">
+            <ContentWrapper />
+            <ContentWrapper />
+            <ContentWrapper />
+        </div>
     </section>
 
     <!-- Additional content can go here -->
@@ -80,3 +84,18 @@
         <!-- Your additional content -->
     </section>
 </div>
+
+<style>
+    .gradient-text {
+        background: linear-gradient(
+            45deg,
+            #61afef 0%,
+            #c678dd 50%,
+            #e06c75 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+    }
+</style>

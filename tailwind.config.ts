@@ -23,6 +23,7 @@ export default {
 				},
 				'gutter': '#4b5263',
 				'selection': '#3e4451',
+				'white': '#f2f4f5',
 			}
 		}
 	},

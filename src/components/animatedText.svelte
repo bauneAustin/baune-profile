@@ -1,12 +1,5 @@
 <script lang="ts">
-    let {
-        text,
-        top = "",
-        left = "",
-        right = "",
-        bottom = "",
-        rotate = "0deg",
-    } = $props();
+    let { text, rotate = "0deg", color = "#ffffff" } = $props();
 
     let isAnimating = $state(false);
     function toggleAnimation() {
@@ -27,7 +20,7 @@
 </script>
 
 <span
-    class={`glow-text relative flex ${top} ${left} ${right} ${bottom} ${rotate} ${isAnimating ? "animate" : ""}`}
+    class={`glow-text relative text-lg ml-3 flex ${rotate} ${isAnimating ? "animate" : ""}`}
     style="--rotation: {rotate};"
 >
     {text}
