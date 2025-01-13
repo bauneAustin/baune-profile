@@ -1,9 +1,10 @@
 <script lang="ts">
-    import AnimatedText from "../components/animatedText.svelte";
+    import TextCapsule from "../components/textCapsule.svelte";
     import Coffee from "../components/coffee.svelte";
     import ContentWrapper from "../components/contentWrapper.svelte";
+    import Book from "../components/book.svelte";
 
-    const animatedTexts = [
+    const textCapsules = [
         {
             text: "JS",
             rotate: "12deg",
@@ -48,7 +49,7 @@
 </script>
 
 <!-- Main container that allows scrolling -->
-<div class="min-h-screen w-full pt-24 pl-64 pr-64 pb-14">
+<div class="min-h-screen w-full pt-24 pl-64 pr-64">
     <section class="relative h-screen w-full flex flex-col">
         <div class="flex flex-row w-full justify-center">
             <div class="flex flex-col mr-32">
@@ -62,8 +63,8 @@
                     Current focus on technologies such as
                 </h3>
                 <div class="flex flex-row mt-6 ml-8">
-                    {#each animatedTexts as { text, rotate, color } (text)}
-                        <AnimatedText --color={color} {text} {rotate} />
+                    {#each textCapsules as { text, rotate, color } (text)}
+                        <TextCapsule --color={color} {text} {rotate} />
                     {/each}
                 </div>
             </div>
@@ -72,9 +73,15 @@
             </div>
         </div>
         <div class="flex flex-row w-full justify-center">
-            <ContentWrapper />
-            <ContentWrapper />
-            <ContentWrapper />
+            <ContentWrapper>
+                <Book />
+            </ContentWrapper>
+            <ContentWrapper>
+                <Book />
+            </ContentWrapper>
+            <ContentWrapper>
+                <Book />
+            </ContentWrapper>
         </div>
     </section>
 

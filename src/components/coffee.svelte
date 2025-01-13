@@ -1,11 +1,6 @@
 <div class="coffee-container">
     <div class="glow"></div>
     <div class="cup">
-        <div
-            class="relative font-bold text-3xl text-center top-[78px] left-[5px] text-atom-black"
-        >
-            {"<Dev />"}
-        </div>
         <div class="top">
             <div class="circle">
                 <div class="coffee"></div>
